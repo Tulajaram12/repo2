@@ -1,5 +1,5 @@
 image:
-  repository: "new_namespace/repo"  # Replace with your image repository path
+  repository: "484468819850.dkr.ecr.ap-southeast-2.amazonaws.com/new_namespace/repo"  # Replace with your image repository path
   tag: "latest"  # Replace with the desired image tag
 
 replicaCount: 1

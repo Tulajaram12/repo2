@@ -2,11 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/webapp')
 def home():
     return 'Hello, World!'
 
-@app.route('/greet/<name>')
+@app.route('/webapp/greet/<name>')
 def greet(name):
     return f'Hello, {name}!'
 
