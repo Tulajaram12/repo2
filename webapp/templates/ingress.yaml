@@ -16,7 +16,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: /
 
     # Optional: group multiple ingresses on same ALB
-    alb.ingress.kubernetes.io/group.name: flask-app
+    alb.ingress.kubernetes.io/group.name: flask-app-2
 spec:
   rules:
     - http:
