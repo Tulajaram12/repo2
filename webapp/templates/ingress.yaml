@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-alb-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+
+    # ALB settings
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
+    # Listener ports
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+
+    # Health check
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+    # Optional: group multiple ingresses on same ALB
+    alb.ingress.kubernetes.io/group.name: flask-app
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: flask-service
+                port:
+                  number: 80
+          - path: /webapp
+            pathType: Prefix
+            backend:
+              service:
+                name: webapp-service
+                port:
+                  number: 80
+#metadata:
+#  annotations:
+#    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+#    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account-id:certificate/xxxx
+

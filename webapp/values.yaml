@@ -1,0 +1,5 @@
+image:
+  repository: "new_namespace/repo"  # Replace with your image repository path
+  tag: "latest"  # Replace with the desired image tag
+
+replicaCount: 1
